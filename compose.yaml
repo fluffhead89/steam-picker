@@ -1,0 +1,14 @@
+services:
+  steam-picker:
+    build: .
+    image: steam-picker:latest
+    container_name: steam-picker
+    restart: unless-stopped
+    env_file: .env # STEAM_API_KEY and STEAM_ID
+    ports:
+      - "3456:3456"
+    volumes:
+      - ./data:/data # tag cache + hidden games
+    labels:
+      # Built locally, so there's nothing for Watchtower to pull.
+      - com.centurylinklabs.watchtower.enable=false

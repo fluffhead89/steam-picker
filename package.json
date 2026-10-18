@@ -1,0 +1,15 @@
+{
+  "name": "steam-picker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Picks a Steam game to play based on your playtime and who you're playing with.",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "demo": "node --env-file-if-exists=.env -e \"process.env.STEAM_MOCK='1'; import('./server.js')\"",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}

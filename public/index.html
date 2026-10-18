@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steam Picker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">🎲</span>
+      <h1>Steam Picker</h1>
+    </div>
+    <div id="mode-badge" class="badge" hidden></div>
+  </header>
+
+  <div id="error" class="banner error" hidden></div>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="me" id="me"></section>
+
+      <h2>Playing with</h2>
+      <div id="selected-chips" class="chips"></div>
+      <input id="friend-search" type="search" placeholder="Search friends" autocomplete="off">
+      <ul id="friends" class="friends" aria-label="Friends"></ul>
+    </aside>
+
+    <section class="content">
+      <div class="controls card">
+        <label class="toggle">
+          <input type="checkbox" id="backlog" checked>
+          <span>Include games nobody has played yet</span>
+        </label>
+        <div class="slider" id="novelty-wrap">
+          <span>Comfort pick</span>
+          <input type="range" id="novelty" min="0" max="100" value="40" aria-label="Comfort versus something new">
+          <span>Something new</span>
+        </div>
+        <button id="pick" class="primary">Pick a game</button>
+      </div>
+
+      <div id="group-info" class="group-info" hidden></div>
+
+      <div id="result" hidden>
+        <article id="featured" class="featured card"></article>
+
+        <h2 class="section-title">Also good tonight</h2>
+        <div id="runners" class="grid"></div>
+
+        <div id="almost-wrap" hidden>
+          <h2 class="section-title">If someone grabs it</h2>
+          <div id="almost" class="almost"></div>
+        </div>
+      </div>
+
+      <div id="empty" class="empty card" hidden></div>
+
+      <details id="hidden-wrap" class="hidden-games" hidden>
+        <summary>Hidden games (<span id="hidden-count">0</span>)</summary>
+        <ul id="hidden-list"></ul>
+      </details>
+    </section>
+  </main>
+
+  <footer id="status" class="status" hidden>
+    <span class="spinner" aria-hidden="true"></span>
+    <span id="status-text"></span>
+    <button id="refresh" class="link" hidden>Refresh picks</button>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
